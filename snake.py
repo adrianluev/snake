@@ -2,18 +2,20 @@ from turtle import *
 from random import randrange
 from freegames import square, vector
 
-food = vector(0, 0)
-snake = [vector(10, 0)]
-aim = vector(0, -10)
+food = vector(0, 0)       #Crea un vector en el origen
+snake = [vector(10, 0)]   #Crea una matriz donde almacenaremos las posiciones 
+aim = vector(0, -10)      #Crea un vector
 
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
 
-def inside(head):
+def inside(head):         #Funcion para confirmar si la cabeza toca la frontera del mapa
     "Return True if head inside boundaries."
-    return -200 < head.x < 190 and -200 < head.y < 190
+    return -200 < head.x < 190 and -200 < head.y < 190 
+    #regresa el valor logico que cumple con un rango de -200 a 190 en X y de -200 a 190 en Y
+
 
 def move():
     "Move snake forward one segment."
@@ -43,13 +45,13 @@ def move():
     update()
     ontimer(move, 100)
 
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
-listen()
-onkey(lambda: change(10, 0), 'Right')
-onkey(lambda: change(-10, 0), 'Left')
-onkey(lambda: change(0, 10), 'Up')
-onkey(lambda: change(0, -10), 'Down')
-move()
+setup(420, 420, 370, 0) #Tamaño de pantalla(x,y) y 
+hideturtle()            #Esconde el apuntador de posicion (flecha)
+tracer(False)           #Desactiva la animacion de trazado que solo debe activarse al final
+listen()                #Empieza la sensible captación de inputs
+onkey(lambda: change(10, 0), 'Right')    #Cambio de dirección por comando de flecha "derecha"
+onkey(lambda: change(-10, 0), 'Left')    #Cambio de dirección por comando de flecha "izquierda"
+onkey(lambda: change(0, 10), 'Up')       #Cambio de dirección por comando de flecha "arriba"
+onkey(lambda: change(0, -10), 'Down')    #Cambio de dirección por comando de flecha "abajo"
+move()                  #Funcion move()
 done()
