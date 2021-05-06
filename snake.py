@@ -29,11 +29,12 @@ def change(x, y):
 #_______________Funcion de frontera____________
 def inside(head):         #Funcion para confirmar si la cabeza toca la frontera del mapa
     "Return True if head inside boundaries."
-    return -200 < head.x < 190 and -200 < head.y < 190
+    return -220 < head.x < 190 and -210 < head.y < 190
     #regresa el valor logico que cumple con un rango de -200 a 190 en X y de -200 a 190 en Y
 
 
 def move():
+    global c1, c2
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
@@ -50,7 +51,9 @@ def move():
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10 # Si la serpiente se come la comida genera una nueva
         food.y = randrange(-15, 15) * 10 #
-
+        c1 = colors(True)       #Color de serpiente cambia al comer
+        c2 = colors(True)       #Color de comida cambia al comer
+       
     elif food.x >= 190:     #
         food.x -= 10        #
         snake.pop(0)        #
@@ -87,7 +90,7 @@ listen()                #Empieza la sensible captación de inputs
 c1 = colors(True)       #Color de serpiente
 c2 = colors(True)       #Color de comida
 while c2 == c1:         #Condición para tener siempre un color diferente
-    c2 = colors(True)
+   c2 = colors(True)
 
 onkey(lambda: change(10, 0), 'Right')    #Cambio de dirección por comando de flecha "derecha"
 onkey(lambda: change(-10, 0), 'Left')    #Cambio de dirección por comando de flecha "izquierda"
