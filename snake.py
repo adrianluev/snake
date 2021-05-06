@@ -1,3 +1,5 @@
+#Autores:
+#Ricardo Rosas Esquivel - A00829089 & Adrián Luévanos Castillo A00827701
 from turtle import *
 from random import randrange
 from freegames import square, vector
