@@ -26,13 +26,30 @@ def move():
         return
 
     snake.append(head)
+    print(head.x, head.y)
 
-    if head == food:
+    if (head == food ) :
         print('Snake:', len(snake))
-        food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10
-    else:
+        food.x = randrange(-15, 15) * 10 # Si la serpiente se come la comida genera una nueva
+        food.y = randrange(-15, 15) * 10 #
+
+    elif food.x >= 190:     #        
+        food.x -= 10        #
+        snake.pop(0)        #
+    elif food.y >= 190:     #
+        food.y -= 10        #
+        snake.pop(0)        #       Checa si la comida llego a una boundary y la regresa un lugar hacia atras
+    elif food.x <= -200:    #    
+        food.x += 10        #
+        snake.pop(0)        #
+    elif food.y <= -200:    #    
+        food.y += 10        #
+        snake.pop(0)        #
+
+    else: 
         snake.pop(0)
+        food.x = food.x + randrange(-1, 1) * 10 # Mueve la comida un paso a la vez
+        food.y = food.y + randrange(-1,1) * 10  #
 
     clear()
 
