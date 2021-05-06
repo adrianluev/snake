@@ -1,5 +1,10 @@
 #Autores:
 #Ricardo Rosas Esquivel - A00829089 & Adrián Luévanos Castillo A00827701
+#Ricardo RE - Aprendí la importacia de las variables globales y ahcer uso de reescribir una variable
+#con ellos ademas de las oportunidades que provee la funcion random
+#Adrian LC - Aprendí cómo manejar objetos y hacer que se muevan de manera que parezca fluida y interactiva UX.
+#También aprendí cómo usar turtle para generar juegos
+
 from turtle import *
 from random import randrange
 from freegames import square, vector
